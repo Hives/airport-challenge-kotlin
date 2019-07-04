@@ -13,6 +13,15 @@ class AirportTest {
     }
 
     @Test
+    fun `landing a plane returns the list of planes at the airport`() {
+        val airport = Airport()
+        val plane1 = Plane()
+        val plane2 = Plane()
+        airport.land(plane1)
+        assertEquals(airport.land(plane2), listOf(plane1, plane2))
+    }
+
+    @Test
     fun `a new plane is not at an airport`() {
         val airport = Airport()
         val plane = Plane()
