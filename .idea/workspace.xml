@@ -1,8 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aa89c024-0d90-40f3-adeb-97a098bfb2f7" name="Default Changelist" comment="">
+    <list default="true" id="aa89c024-0d90-40f3-adeb-97a098bfb2f7" name="Default Changelist" comment="An airport can land a plane&#10;&#10;Test passing with vacuous code">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/Plane.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/AirportTest.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/css/base-style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/js/report.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/default-package.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-AirportTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Airport.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Airport.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/AirportTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/AirportTest.kt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -26,25 +39,42 @@
   <component name="FileEditorManager">
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/main/kotlin/Airport.kt">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="30">
-                  <caret line="2" selection-start-line="2" selection-end-line="2" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
+        <splitter split-orientation="vertical" split-proportion="0.5">
+          <split-first>
+            <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+              <file pinned="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/src/main/kotlin/Airport.kt">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="75">
+                      <caret line="5" column="53" selection-start-line="5" selection-start-column="53" selection-end-line="5" selection-end-column="53" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+            </leaf>
+          </split-first>
+          <split-second>
+            <leaf>
+              <file pinned="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/src/main/kotlin/Plane.kt">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state>
+                      <caret column="11" selection-start-column="11" selection-end-column="11" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+            </leaf>
+          </split-second>
+        </splitter>
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/test/kotlin/AirportTest.kt">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="135">
-                  <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+                <state relative-caret-position="60">
+                  <caret line="4" selection-start-line="4" selection-end-line="4" />
                   <folding>
                     <element signature="e#0#47#0" expanded="true" />
                   </folding>
@@ -59,8 +89,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Kotlin Class" />
         <option value="JUnit4 Test Class" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
@@ -175,6 +205,46 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="AirportTest.a new plane is not at an airport" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;AirportTest.a new plane is not at an airport&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":cleanTest" />
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="AirportTest.an airport can land a plane" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;AirportTest.an airport can land a plane&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":cleanTest" />
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="AirportTest.returns 'hello'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -198,6 +268,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.AirportTest" />
+        <item itemvalue="Gradle.AirportTest.a new plane is not at an airport" />
+        <item itemvalue="Gradle.AirportTest.an airport can land a plane" />
         <item itemvalue="Gradle.AirportTest.returns 'hello'" />
       </list>
     </recent_temporary>
@@ -220,7 +292,14 @@
       <option name="project" value="LOCAL" />
       <updated>1562250734965</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Add README and instructions">
+      <created>1562251007918</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1562251007918</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -233,12 +312,27 @@
     <history-entry file="AirportTest - 2019.07.04 at 15h 12m 11s.xml">
       <configuration name="AirportTest" configurationId="GradleRunConfiguration" />
     </history-entry>
+    <history-entry file="AirportTest_an_airport_can_land_a_plane - 2019.07.04 at 15h 59m 36s.xml">
+      <configuration name="AirportTest.an airport can land a plane" configurationId="GradleRunConfiguration" />
+    </history-entry>
+    <history-entry file="AirportTest_an_airport_can_land_a_plane - 2019.07.04 at 16h 05m 04s.xml">
+      <configuration name="AirportTest.an airport can land a plane" configurationId="GradleRunConfiguration" />
+    </history-entry>
+    <history-entry file="AirportTest - 2019.07.04 at 16h 05m 25s.xml">
+      <configuration name="AirportTest" configurationId="GradleRunConfiguration" />
+    </history-entry>
+    <history-entry file="AirportTest_a_new_plane_is_not_at_an_airport - 2019.07.04 at 16h 08m 09s.xml">
+      <configuration name="AirportTest.a new plane is not at an airport" configurationId="GradleRunConfiguration" />
+    </history-entry>
+    <history-entry file="AirportTest - 2019.07.04 at 16h 15m 14s.xml">
+      <configuration name="AirportTest" configurationId="GradleRunConfiguration" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="16" y="38" width="1882" height="1140" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25245366" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25245366" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -246,9 +340,10 @@
       <window_info id="UI Designer" order="5" />
       <window_info id="Learn" order="6" weight="0.32988003" />
       <window_info id="Favorites" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" weight="0.3298077" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3298077" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3298077" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -270,7 +365,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First commit&#10;&#10;Create and test a dummy method" />
-    <option name="LAST_COMMIT_MESSAGE" value="First commit&#10;&#10;Create and test a dummy method" />
+    <MESSAGE value="Add README and instructions" />
+    <MESSAGE value="An airport can land a plane&#10;&#10;Test passing with vacuous code" />
+    <option name="LAST_COMMIT_MESSAGE" value="An airport can land a plane&#10;&#10;Test passing with vacuous code" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/build.gradle">
@@ -283,20 +380,27 @@
     <entry file="file://$PROJECT_DIR$/gradlew.bat">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/kotlin/AirportTest.kt">
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/Plane.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
-          <folding>
-            <element signature="e#0#47#0" expanded="true" />
-          </folding>
+        <state>
+          <caret column="11" selection-start-column="11" selection-end-column="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/kotlin/Airport.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        <state relative-caret-position="75">
+          <caret line="5" column="53" selection-start-line="5" selection-start-column="53" selection-end-line="5" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/kotlin/AirportTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+          <folding>
+            <element signature="e#0#47#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
