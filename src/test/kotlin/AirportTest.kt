@@ -1,30 +1,27 @@
 import org.junit.Assert.*
-import org.junit.Before
 import org.junit.Test
 
 class AirportTest {
 
-    @Test
-    fun `an airport can land a plane`() {
-        val airport = Airport()
-        val plane = Plane()
-        airport.land(plane)
-        assert(airport.contains(plane))
-    }
+    private val airport = Airport()
+    private val plane1 = Plane()
+    private val plane2 = Plane()
 
     @Test
-    fun `landing a plane returns the list of planes at the airport`() {
-        val airport = Airport()
-        val plane1 = Plane()
-        val plane2 = Plane()
+    fun `an airport can land a plane`() {
         airport.land(plane1)
-        assertEquals(airport.land(plane2), listOf(plane1, plane2))
+        assert(airport.contains(plane1))
     }
 
     @Test
     fun `a new plane is not at an airport`() {
-        val airport = Airport()
-        val plane = Plane()
-        assertFalse(airport.contains(plane))
+        assertFalse(airport.contains(plane1))
     }
+
+    @Test
+    fun `landing a plane returns the list of planes at the airport`() {
+        airport.land(plane1)
+        assertEquals(airport.land(plane2), listOf(plane1, plane2))
+    }
+
 }
