@@ -42,4 +42,13 @@ class AirportTest {
         every { airport.stormy() } returns true
         airport.clearForLanding(plane1)
     }
+
+    @Test(expected = BadWeatherException::class)
+    fun `planes are not allowed to take off when it's stormy`() {
+        val airport = spyk(Airport())
+        every { airport.stormy() } returns false
+        airport.clearForLanding(plane1)
+        every { airport.stormy() } returns true
+        airport.clearForTakeOff(plane1)
+    }
 }

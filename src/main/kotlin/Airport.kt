@@ -3,14 +3,13 @@ class Airport {
     var hanger: MutableList<Plane> = mutableListOf()
 
     fun clearForLanding(plane: Plane): MutableList<Plane> {
-        if (stormy()) {
-            throw BadWeatherException("Could not land plane; weather was stormy.")
-        }
+        if (stormy()) throw BadWeatherException("Plane could not land; weather was stormy.")
         hanger.add(plane)
         return hanger
     }
 
     fun clearForTakeOff(plane: Plane): MutableList<Plane> {
+        if (stormy()) throw BadWeatherException("Plane could not take off; weather was stormy.")
         hanger.remove(plane)
         return hanger
     }
