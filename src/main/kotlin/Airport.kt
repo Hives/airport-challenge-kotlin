@@ -2,7 +2,7 @@ class Airport {
 
     var hanger: MutableList<Plane> = mutableListOf()
 
-    fun land(plane: Plane): MutableList<Plane> {
+    fun clearForLanding(plane: Plane): MutableList<Plane> {
         hanger.add(plane)
         return hanger
     }
