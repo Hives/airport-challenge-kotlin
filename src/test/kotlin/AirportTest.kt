@@ -15,11 +15,6 @@ class AirportTest {
     }
 
     @Test
-    fun `a new plane is not at an airport`() {
-        assertFalse(airport.contains(plane1))
-    }
-
-    @Test
     fun `landing a plane returns the list of planes at the airport`() {
         airport.clearForLanding(plane1)
         assertEquals(airport.clearForLanding(plane2), listOf(plane1, plane2))
