@@ -1,11 +1,12 @@
+import io.mockk.mockk
 import org.junit.Assert.*
 import org.junit.Test
 
 class AirportTest {
 
     private val airport = Airport()
-    private val plane1 = Plane()
-    private val plane2 = Plane()
+    private val plane1 = mockk<Plane>()
+    private val plane2 = mockk<Plane>()
 
     @Test
     fun `an airport can land a plane`() {
