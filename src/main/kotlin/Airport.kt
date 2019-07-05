@@ -7,6 +7,11 @@ class Airport {
         return hanger
     }
 
+    fun clearForTakeOff(plane: Plane): MutableList<Plane> {
+        hanger.remove(plane)
+        return hanger
+    }
+
     fun contains(plane: Plane) = hanger.contains(plane)
 
 }

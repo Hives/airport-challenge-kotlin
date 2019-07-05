@@ -20,3 +20,9 @@ dependencies {
 compileKotlin {
     kotlinOptions.jvmTarget = "1.8"
 }
+
+test {
+    testLogging {
+        exceptionFormat = 'full'
+    }
+}
