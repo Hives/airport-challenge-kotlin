@@ -3,6 +3,9 @@ class Airport {
     var hanger: MutableList<Plane> = mutableListOf()
 
     fun clearForLanding(plane: Plane): MutableList<Plane> {
+        if (stormy()) {
+            throw BadWeatherException("Could not land plane; weather was stormy.")
+        }
         hanger.add(plane)
         return hanger
     }
@@ -13,5 +16,7 @@ class Airport {
     }
 
     fun contains(plane: Plane) = hanger.contains(plane)
+
+    fun stormy(): Boolean = false
 
 }

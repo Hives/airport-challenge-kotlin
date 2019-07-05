@@ -1,4 +1,6 @@
+import io.mockk.every
 import io.mockk.mockk
+import io.mockk.spyk
 import org.junit.Assert.*
 import org.junit.Test
 
@@ -32,5 +34,12 @@ class AirportTest {
         airport.clearForLanding(plane1)
         airport.clearForLanding(plane2)
         assertEquals(listOf(plane2), airport.clearForTakeOff(plane1))
+    }
+
+    @Test(expected = BadWeatherException::class)
+    fun `planes are not allowed to land when it's stormy`() {
+        val airport = spyk(Airport())
+        every { airport.stormy() } returns true
+        airport.clearForLanding(plane1)
     }
 }

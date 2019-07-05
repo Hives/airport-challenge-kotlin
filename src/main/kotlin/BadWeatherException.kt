@@ -1,0 +1,1 @@
+class BadWeatherException(message: String): Exception(message)
