@@ -16,6 +16,6 @@ class Airport {
 
     fun contains(plane: Plane) = hanger.contains(plane)
 
-    fun stormy(): Boolean = false
+    fun stormy(): Boolean = (0..10).random() > 8
 
 }
