@@ -1,6 +1,7 @@
-class Airport {
+class Airport(weatherReporter: WeatherReporter = WeatherReporter()) {
 
     var hanger: MutableList<Plane> = mutableListOf()
+    val weatherReporter = weatherReporter
 
     fun clearForLanding(plane: Plane): MutableList<Plane> {
         if (stormy()) throw BadWeatherException("Plane could not land; weather was stormy.")
@@ -16,6 +17,6 @@ class Airport {
 
     fun contains(plane: Plane) = hanger.contains(plane)
 
-    fun stormy(): Boolean = (0..10).random() > 8
+    fun stormy(): Boolean = weatherReporter.stormy()
 
 }

@@ -7,8 +7,9 @@ class FeatureTest {
 
     @Test
     fun `planes are not allowed to land when it's stormy`() {
-        val airport = spyk(Airport())
-        every { airport.stormy() } returns true
+        val weatherReporter = spyk(WeatherReporter())
+        val airport = Airport(weatherReporter = weatherReporter)
+        every { weatherReporter.stormy() } returns true
         assertThrows(BadWeatherException::class.java) {
             airport.clearForTakeOff(Plane())
         }
@@ -16,10 +17,11 @@ class FeatureTest {
 
     @Test
     fun `planes are not allowed to take off when it's stormy`() {
-        val airport = spyk(Airport())
-        every { airport.stormy() } returns false
+        val weatherReporter = spyk(WeatherReporter())
+        val airport = Airport(weatherReporter = weatherReporter)
+        every { weatherReporter.stormy() } returns false
         airport.clearForLanding(Plane())
-        every { airport.stormy() } returns true
+        every { weatherReporter.stormy() } returns true
         assertThrows(BadWeatherException::class.java) {
             airport.clearForTakeOff(Plane())
         }
@@ -31,7 +33,7 @@ class FeatureTest {
 //        repeat(20) {
 //            airport.clearForLanding(Plane())
 //        }
-//        assertFailsWith<FullAirportException> {
+//        assertThrows(FullAirportException::class.java) {
 //            airport.clearForLanding(Plane())
 //        }
 //    }
