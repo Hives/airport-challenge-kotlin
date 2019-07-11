@@ -10,7 +10,7 @@ class FeatureTest {
         val weatherReporter = spyk(WeatherReporter())
         val airport = Airport(weatherReporter = weatherReporter)
         every { weatherReporter.stormy() } returns true
-        assertThrows(BadWeatherException::class.java) {
+        assertThrows(Exception::class.java) {
             airport.clearForTakeOff(Plane())
         }
     }
@@ -22,19 +22,22 @@ class FeatureTest {
         every { weatherReporter.stormy() } returns false
         airport.clearForLanding(Plane())
         every { weatherReporter.stormy() } returns true
-        assertThrows(BadWeatherException::class.java) {
+        assertThrows(Exception::class.java) {
             airport.clearForTakeOff(Plane())
         }
     }
 
-//    @Test
-//    fun `planes cannot land if the airport is full`() {
-//        val airport = Airport(20)
-//        repeat(20) {
-//            airport.clearForLanding(Plane())
-//        }
-//        assertThrows(FullAirportException::class.java) {
-//            airport.clearForLanding(Plane())
-//        }
-//    }
+    @Test
+    fun `planes cannot land if the airport is full`() {
+        val weatherReporter = spyk(WeatherReporter())
+        val airport = Airport(weatherReporter = weatherReporter)
+        every { weatherReporter.stormy() } returns false
+        repeat(20) {
+            airport.clearForLanding(Plane())
+        }
+        val thrown = assertThrows(Exception::class.java) {
+            airport.clearForLanding(Plane())
+        }
+        assert(thrown.message!!.contains("Plane could not land; airport was full"))
+    }
 }

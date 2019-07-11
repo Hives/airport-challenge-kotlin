@@ -44,7 +44,7 @@ class AirportTest {
     @Test
     fun `planes can't land in bad weather`() {
         every { weatherReporter.stormy() } returns true
-        val thrown = assertThrows(BadWeatherException::class.java) {
+        val thrown = assertThrows(Exception::class.java) {
             airport.clearForLanding(plane1)
         }
         assert(thrown.message!!.contains("Plane could not land; weather was stormy."))
@@ -55,9 +55,21 @@ class AirportTest {
         every { weatherReporter.stormy() } returns false
         airport.clearForLanding(plane1)
         every { weatherReporter.stormy() } returns true
-        val thrown = assertThrows(BadWeatherException::class.java) {
+        val thrown = assertThrows(Exception::class.java) {
             airport.clearForTakeOff(plane1)
         }
         assert(thrown.message!!.contains("Plane could not take off; weather was stormy."))
+    }
+
+    @Test
+    fun `planes cannot land if the airport is full`() {
+        every { weatherReporter.stormy() } returns false
+        repeat(20) {
+            airport.clearForLanding(plane1)
+        }
+        val thrown = assertThrows(Exception::class.java) {
+            airport.clearForLanding(plane1)
+        }
+        assert(thrown.message!!.contains("Plane could not land; airport was full"))
     }
 }
