@@ -24,4 +24,15 @@ class FeatureTest {
             airport.clearForTakeOff(Plane())
         }
     }
+
+//    @Test
+//    fun `planes cannot land if the airport is full`() {
+//        val airport = Airport(20)
+//        repeat(20) {
+//            airport.clearForLanding(Plane())
+//        }
+//        assertFailsWith<FullAirportException> {
+//            airport.clearForLanding(Plane())
+//        }
+//    }
 }

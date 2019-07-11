@@ -16,3 +16,7 @@ second test, but... it didn't. Why is that?
   equivalent solution in Kotlin is quite nasty. Solution is to use JUnit 5, which
   is more friendly with Kotlin. See this vid:
   <https://www.youtube.com/watch?v=RX_g65J14H0&t=210>
+
+I tried using JUnit 5's `@Nested` annotation to group my tests, but for some
+reason it didn't nest the tests in the Gradle test output window. Would be great
+to get that working.

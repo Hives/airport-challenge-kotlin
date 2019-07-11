@@ -11,7 +11,7 @@ class AirportTest {
     private val plane2 = mockk<Plane>()
 
     @Test
-    fun `an airport can land a plane`() {
+    fun `Airport#clearForLanding lands a plane`() {
         every { airport.stormy() } returns false
         airport.clearForLanding(plane1)
         assert(airport.contains(plane1))
@@ -25,7 +25,7 @@ class AirportTest {
     }
 
     @Test
-    fun `an airport can tell a plane to take off`() {
+    fun `Airport#ClearForTakeOff tells a plane to take off`() {
         every { airport.stormy() } returns false
         airport.clearForLanding(plane1)
         airport.clearForTakeOff(plane1)
@@ -40,8 +40,9 @@ class AirportTest {
         assertEquals(listOf(plane2), airport.clearForTakeOff(plane1))
     }
 
+
     @Test
-    fun `planes are not allowed to land when it's stormy`() {
+    fun `planes can't land in bad weather`() {
         every { airport.stormy() } returns true
         assertThrows(BadWeatherException::class.java) {
             airport.clearForLanding(plane1)
@@ -49,7 +50,7 @@ class AirportTest {
     }
 
     @Test
-    fun `planes are not allowed to take off when it's stormy`() {
+    fun `planes can't take off in bad weather`() {
         every { airport.stormy() } returns false
         airport.clearForLanding(plane1)
         every { airport.stormy() } returns true
