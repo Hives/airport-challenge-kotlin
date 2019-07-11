@@ -1,9 +1,9 @@
-class Airport(val weatherReporter: WeatherReporter = WeatherReporter()) {
+class Airport(val capacity: Int = 20, val weatherReporter: WeatherReporter = WeatherReporter()) {
 
     var hanger: MutableList<Plane> = mutableListOf()
 
     fun clearForLanding(plane: Plane): MutableList<Plane> {
-        if (hanger.size >= 20) throw Exception("Plane could not land; airport was full.")
+        if (hanger.size >= capacity) throw Exception("Plane could not land; airport was full.")
         if (stormy()) throw Exception("Plane could not land; weather was stormy.")
         hanger.add(plane)
         return hanger

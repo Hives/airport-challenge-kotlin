@@ -72,4 +72,17 @@ class AirportTest {
         }
         assert(thrown.message!!.contains("Plane could not land; airport was full"))
     }
+
+    @Test
+    fun `airport capacity can be set on initialisation`() {
+       val customCapacityAirport = Airport(weatherReporter = weatherReporter, capacity = 5)
+        every { weatherReporter.stormy() } returns false
+        repeat(5) {
+            customCapacityAirport.clearForLanding(plane1)
+        }
+        val thrown = assertThrows(Exception::class.java) {
+            customCapacityAirport.clearForLanding(plane1)
+        }
+        assert(thrown.message!!.contains("Plane could not land; airport was full"))
+    }
 }
