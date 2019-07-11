@@ -1,8 +1,8 @@
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.spyk
-import org.junit.Assert.*
-import org.junit.Test
+import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Test
 
 class AirportTest {
 
@@ -40,17 +40,21 @@ class AirportTest {
         assertEquals(listOf(plane2), airport.clearForTakeOff(plane1))
     }
 
-    @Test(expected = BadWeatherException::class)
+    @Test
     fun `planes are not allowed to land when it's stormy`() {
         every { airport.stormy() } returns true
-        airport.clearForLanding(plane1)
+        assertThrows(BadWeatherException::class.java) {
+            airport.clearForLanding(plane1)
+        }
     }
 
-    @Test(expected = BadWeatherException::class)
+    @Test
     fun `planes are not allowed to take off when it's stormy`() {
         every { airport.stormy() } returns false
         airport.clearForLanding(plane1)
         every { airport.stormy() } returns true
-        airport.clearForTakeOff(plane1)
+        assertThrows(BadWeatherException::class.java) {
+            airport.clearForTakeOff(plane1)
+        }
     }
 }
