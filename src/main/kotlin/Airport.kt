@@ -10,6 +10,7 @@ class Airport(val capacity: Int = 20, val weatherReporter: WeatherReporter = Wea
     }
 
     fun clearForTakeOff(plane: Plane): MutableList<Plane> {
+        if (!contains(plane)) throw Exception("Plane could not take off; plane is not at this airport.")
         if (stormy()) throw Exception("Plane could not take off; weather was stormy.")
         hanger.remove(plane)
         return hanger
