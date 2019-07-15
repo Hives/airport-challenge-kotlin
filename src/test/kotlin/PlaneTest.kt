@@ -7,7 +7,7 @@ internal class PlaneTest {
     @Test
     fun `flying planes can land`() {
         plane.land()
-        assertFalse(plane.flying)
+        assertTrue(plane.landed)
     }
 
     @Test

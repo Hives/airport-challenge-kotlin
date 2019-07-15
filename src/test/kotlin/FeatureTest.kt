@@ -12,7 +12,7 @@ class FeatureTest {
         val plane = Plane()
         airport.clearForLanding(plane)
         assertTrue(airport.contains(plane))
-        assertFalse(plane.flying)
+        assertTrue(plane.landed)
     }
 
     @Test
