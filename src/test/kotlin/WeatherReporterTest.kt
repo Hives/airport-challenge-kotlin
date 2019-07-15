@@ -7,13 +7,13 @@ internal class WeatherReporterTest {
     val weatherReporter = spyk(WeatherReporter())
 
     @Test
-    fun `Weather can be non-stormy`() {
+    fun `weather can be non-stormy`() {
         every { weatherReporter.randomWeather() } returns 1
         assertFalse(weatherReporter.stormy())
     }
 
     @Test
-    fun `Weather can be stormy`() {
+    fun `weather can be stormy`() {
         every { weatherReporter.randomWeather() } returns 10
         assertTrue(weatherReporter.stormy())
     }
