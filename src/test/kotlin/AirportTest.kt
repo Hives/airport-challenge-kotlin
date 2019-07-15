@@ -4,50 +4,49 @@ import org.junit.jupiter.api.Test
 
 class AirportTest {
 
-    val weatherReporter = mockk<WeatherReporter>()
-    val airport1 = Airport(weatherReporter = weatherReporter)
-    val airport2 = Airport(weatherReporter = weatherReporter)
-    val plane1 = mockk<Plane>(relaxed = true)
-    val plane2 = mockk<Plane>(relaxed = true)
+    private val weatherReporter = mockk<WeatherReporter>()
+    private val airport = Airport(weatherReporter = weatherReporter)
+    private val plane = mockk<Plane>(relaxed = true)
+    private val plane2 = mockk<Plane>(relaxed = true)
+
+    init {
+        every { weatherReporter.stormy() } returns false
+    }
 
     @Test
     fun `Airport#clearForLanding lands a plane`() {
-        every { weatherReporter.stormy() } returns false
-        airport1.clearForLanding(plane1)
-        assert(airport1.contains(plane1))
-        verify { plane1.land() }
+        airport.clearForLanding(plane)
+        assert(airport.contains(plane))
+        verify { plane.land() }
     }
 
     @Test
     fun `Airport#clearForLanding returns the list of planes at the airport`() {
-        every { weatherReporter.stormy() } returns false
-        airport1.clearForLanding(plane1)
-        assertEquals(listOf(plane1, plane2), airport1.clearForLanding(plane2))
+        airport.clearForLanding(plane)
+        assertEquals(listOf(plane, plane2), airport.clearForLanding(plane2))
     }
 
     @Test
     fun `Airport#ClearForTakeOff tells a plane to take off`() {
-        every { weatherReporter.stormy() } returns false
-        airport1.clearForLanding(plane1)
-        airport1.clearForTakeOff(plane1)
-        assertFalse(airport1.contains(plane1))
-        verify { plane1.takeOff() }
+        airport.clearForLanding(plane)
+        airport.clearForTakeOff(plane)
+        assertFalse(airport.contains(plane))
+        verify { plane.takeOff() }
     }
 
     @Test
     fun `Airport#clearForTakeOff returns the list of planes at the airport`() {
-        every { weatherReporter.stormy() } returns false
-        airport1.clearForLanding(plane1)
-        airport1.clearForLanding(plane2)
-        assertEquals(listOf(plane2), airport1.clearForTakeOff(plane1))
+        airport.clearForLanding(plane)
+        airport.clearForLanding(plane2)
+        assertEquals(listOf(plane2), airport.clearForTakeOff(plane))
     }
 
     @Test
     fun `Airport#clearForTakeOff throws an error if plane not at airport`() {
-        every { weatherReporter.stormy() } returns false
-        airport1.clearForLanding(plane1)
+        val airport2 = Airport()
+        airport.clearForLanding(plane)
         val thrown = assertThrows(Exception::class.java) {
-            airport2.clearForTakeOff(plane1)
+            airport2.clearForTakeOff(plane)
         }
         assert(thrown.message!!.contains("Plane could not take off; plane is not at this airport."))
     }
@@ -56,30 +55,28 @@ class AirportTest {
     fun `planes can't land in bad weather`() {
         every { weatherReporter.stormy() } returns true
         val thrown = assertThrows(Exception::class.java) {
-            airport1.clearForLanding(plane1)
+            airport.clearForLanding(plane)
         }
         assert(thrown.message!!.contains("Plane could not land; weather was stormy."))
     }
 
     @Test
     fun `planes can't take off in bad weather`() {
-        every { weatherReporter.stormy() } returns false
-        airport1.clearForLanding(plane1)
+        airport.clearForLanding(plane)
         every { weatherReporter.stormy() } returns true
         val thrown = assertThrows(Exception::class.java) {
-            airport1.clearForTakeOff(plane1)
+            airport.clearForTakeOff(plane)
         }
         assert(thrown.message!!.contains("Plane could not take off; weather was stormy."))
     }
 
     @Test
     fun `planes cannot land if the airport is full`() {
-        every { weatherReporter.stormy() } returns false
         repeat(20) {
-            airport1.clearForLanding(plane1)
+            airport.clearForLanding(plane)
         }
         val thrown = assertThrows(Exception::class.java) {
-            airport1.clearForLanding(plane1)
+            airport.clearForLanding(plane)
         }
         assert(thrown.message!!.contains("Plane could not land; airport was full"))
     }
@@ -87,12 +84,11 @@ class AirportTest {
     @Test
     fun `airport capacity can be set on initialisation`() {
        val customCapacityAirport = Airport(weatherReporter = weatherReporter, capacity = 5)
-        every { weatherReporter.stormy() } returns false
         repeat(5) {
-            customCapacityAirport.clearForLanding(plane1)
+            customCapacityAirport.clearForLanding(plane)
         }
         val thrown = assertThrows(Exception::class.java) {
-            customCapacityAirport.clearForLanding(plane1)
+            customCapacityAirport.clearForLanding(plane)
         }
         assert(thrown.message!!.contains("Plane could not land; airport was full"))
     }
