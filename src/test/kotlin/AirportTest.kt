@@ -1,5 +1,4 @@
-import io.mockk.every
-import io.mockk.mockk
+import io.mockk.*
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 
@@ -8,14 +7,15 @@ class AirportTest {
     val weatherReporter = mockk<WeatherReporter>()
     val airport1 = Airport(weatherReporter = weatherReporter)
     val airport2 = Airport(weatherReporter = weatherReporter)
-    val plane1 = mockk<Plane>()
-    val plane2 = mockk<Plane>()
+    val plane1 = mockk<Plane>(relaxed = true)
+    val plane2 = mockk<Plane>(relaxed = true)
 
     @Test
     fun `Airport#clearForLanding lands a plane`() {
         every { weatherReporter.stormy() } returns false
         airport1.clearForLanding(plane1)
         assert(airport1.contains(plane1))
+        verify { plane1.land() }
     }
 
     @Test
@@ -31,6 +31,7 @@ class AirportTest {
         airport1.clearForLanding(plane1)
         airport1.clearForTakeOff(plane1)
         assertFalse(airport1.contains(plane1))
+        verify { plane1.takeOff() }
     }
 
     @Test
