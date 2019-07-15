@@ -47,7 +47,8 @@ class FeatureTest {
 
     @Test
     fun `planes cannot land if the airport is full`() {
-        repeat(20) {
+        val capacity = airport.defaultCapacity
+        repeat(capacity) {
             airport.clearForLanding(Plane())
         }
         val thrown = assertThrows(Exception::class.java) {
@@ -58,7 +59,7 @@ class FeatureTest {
 
     @Test
     fun `airport capacity can be set on initialisation`() {
-        val customCapacityAirport = Airport(weatherReporter = weatherReporter, capacity = 5)
+        val customCapacityAirport = Airport(weatherReporter = weatherReporter, customCapacity = 5)
         repeat(5) {
             customCapacityAirport.clearForLanding(Plane())
         }

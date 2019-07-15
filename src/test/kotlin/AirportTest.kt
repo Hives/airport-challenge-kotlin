@@ -90,7 +90,8 @@ class AirportTest {
     inner class Capacity {
         @Test
         fun `planes can't land if the airport is full`() {
-            repeat(20) {
+            val capacity = airport.defaultCapacity
+            repeat(capacity) {
                 airport.clearForLanding(plane)
             }
             val thrown = assertThrows(Exception::class.java) {
@@ -101,7 +102,7 @@ class AirportTest {
 
         @Test
         fun `default capacity can be overridden on initialisation`() {
-            val customCapacityAirport = Airport(weatherReporter = weatherReporter, capacity = 5)
+            val customCapacityAirport = Airport(weatherReporter = weatherReporter, customCapacity = 5)
             repeat(5) {
                 customCapacityAirport.clearForLanding(plane)
             }

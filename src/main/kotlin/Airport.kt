@@ -1,6 +1,8 @@
-class Airport(val capacity: Int = 20, val weatherReporter: WeatherReporter = WeatherReporter()) {
+class Airport(val customCapacity: Int? = null, val weatherReporter: WeatherReporter = WeatherReporter()) {
 
     var hanger: MutableList<Plane> = mutableListOf()
+    val defaultCapacity = 20
+    val capacity = if (customCapacity == null) defaultCapacity else customCapacity
 
     fun clearForLanding(plane: Plane): MutableList<Plane> {
         if (hanger.size >= capacity) throw Exception("Plane could not land; airport was full.")
